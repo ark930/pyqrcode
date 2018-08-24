@@ -1,3 +1,7 @@
+### 安装 mplayer
+```
+sudo apt-get install mplayer
+```
 ### 安装 opencv 依赖库
 ```
 sudo apt-get install libatlas-base-dev
