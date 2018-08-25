@@ -4,7 +4,8 @@ import os
 
 try:
     image_path = '../image/barcode.jpg'
-    os.remove(image_path)
+    if os.path.isfile(image_path) and os.access(image_path, os.R_OK):
+        os.remove(image_path)
 
     for i in range(5):
         # 获取二维码图片
