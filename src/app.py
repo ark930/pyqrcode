@@ -7,7 +7,7 @@ try:
     if os.path.isfile(image_path) and os.access(image_path, os.R_OK):
         os.remove(image_path)
 
-    for i in range(5):
+    for i in range(10):
         # 获取二维码图片
         scanner.capture(image_path)
 

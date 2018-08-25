@@ -29,8 +29,8 @@ def parse(image_path):
 
 def capture(image_path):
     from os import system
-    system('raspistill -t 2000 -o ' + image_path)
-    # system('raspistill -t 2000 -n -o ' + image_path)
+    system('raspistill -t 500 -n -o ' + image_path)
+    # system('raspistill -t 500 -n -o ' + image_path)
 
 
 class BarcodeNotFoundError(Exception):
