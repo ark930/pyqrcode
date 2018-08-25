@@ -4,8 +4,8 @@ def search(barcode):
         resource_id = '../resource/music.mp3'
         resource_type = 'music'
     elif barcode == 'video':
-        resource_id = 'video.mp4'
-        resource_type = '../resource/video'
+        resource_id = '../resource/video.mp4'
+        resource_type = 'video'
     else:
         raise ResourceNotFound
 
