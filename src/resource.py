@@ -1,11 +1,11 @@
 # -*- coding:utf-8 -*-
 def search(barcode):
     if barcode == 'music':
-        resource_id = 'music.mp3'
+        resource_id = '../resource/music.mp3'
         resource_type = 'music'
     elif barcode == 'video':
         resource_id = 'video.mp4'
-        resource_type = 'video'
+        resource_type = '../resource/video'
     else:
         raise ResourceNotFound
 
@@ -14,10 +14,10 @@ def search(barcode):
 
 def play(resource_id, resource_type):
     from subprocess import call
-    # call(['omxplayer', resource_id])
-    call(['echo', resource_id])
-    pid = call(['sleep', '3'])
-    print(pid)
+    call(['omxplayer', resource_id])
+    # call(['echo', resource_id])
+    # pid = call(['sleep', '3'])
+    # print(pid)
     # raise ResourcePlayError
 
 
