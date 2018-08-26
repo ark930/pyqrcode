@@ -13,12 +13,20 @@ def search(barcode):
 
 
 def play(resource_id, resource_type):
-    from subprocess import call
-    call(['omxplayer', resource_id])
-    # call(['echo', resource_id])
-    # pid = call(['sleep', '3'])
-    # print(pid)
-    # raise ResourcePlayError
+    from subprocess import Popen
+    import os
+
+    proc = Popen(['omxplayer', resource_id])
+    pgid = os.getpgid(proc.pid)
+
+    return pgid
+
+
+def terminate(pgid):
+    import signal
+    import os
+
+    os.killpg(pgid, signal.SIGTERM)
 
 
 class ResourceNotFound(Exception):
@@ -27,3 +35,31 @@ class ResourceNotFound(Exception):
 
 class ResourcePlayError(Exception):
     pass
+
+
+if __name__ == '__main__':
+    def my_job():
+        sleep(3)
+        omxplayer.pause()
+        sleep(1)
+        omxplayer.pause()
+        sleep(2)
+        omxplayer.pause()
+        sleep(2)
+        omxplayer.pause()
+        sleep(2)
+        omxplayer.status()
+
+        sleep(3)
+        terminate(pgid)
+
+    from time import sleep
+    import threading
+    import omxplayer
+
+    pgid = play('../resource/music.mp3', 'music')
+    t = threading.Thread(target=my_job)
+    t.start()
+
+
+
