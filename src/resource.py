@@ -12,7 +12,7 @@ def search(url):
     # elif barcode == 'video':
         # meta_data = '../resource/video.mp4'
     else:
-        p = Popen(['/Users/edwin/github/annie/annie', '-j', url], stdin=PIPE, stdout=PIPE, stderr=PIPE)
+        p = Popen(['annie', '-j', url], stdin=PIPE, stdout=PIPE, stderr=PIPE)
         output, err = p.communicate()
         if p.returncode == 0:
             output_array = json.loads(output)
