@@ -59,5 +59,11 @@ if __name__ == '__main__':
         # media = resource['default']
         # for URL in media['URLs']:
         #     print(URL['URL'])
+    elif args.type == 'tts':
+        import tts
+        import os
+        file_path = tts.sentence_to_audio('hello world')
+        resource.play(file_path)
+        os.remove(file_path)
     else:
         play_by_barcode()
