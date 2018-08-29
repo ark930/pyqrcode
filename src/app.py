@@ -4,6 +4,8 @@ import resource
 import os
 import argparse
 import threading
+import tts
+import robot
 
 
 def play_by_barcode():
@@ -60,9 +62,17 @@ if __name__ == '__main__':
         # for URL in media['URLs']:
         #     print(URL['URL'])
     elif args.type == 'tts':
-        import tts
-        import os
         file_path = tts.sentence_to_audio('我们一起学猫叫，一起往汪汪往汪喵嗷呜')
         resource.play(file_path)
+    elif args.type == 'robot':
+        while True:
+            text_input = input('我：')
+            if text_input == '':
+                break
+
+            results_text = robot.chat(text_input)
+            file_path = tts.sentence_to_audio(results_text)
+            resource.play(file_path)
+
     else:
         play_by_barcode()
