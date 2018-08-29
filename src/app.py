@@ -62,8 +62,7 @@ if __name__ == '__main__':
     elif args.type == 'tts':
         import tts
         import os
-        file_path = tts.sentence_to_audio('hello world')
+        file_path = tts.sentence_to_audio('我们一起学猫叫，一起往汪汪往汪喵嗷呜')
         resource.play(file_path)
-        os.remove(file_path)
     else:
         play_by_barcode()
