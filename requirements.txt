@@ -1,3 +1,4 @@
 numpy==1.12.1
 opencv-python==3.4.2.17
 pyzbar==0.1.7
+requests==2.18.4
