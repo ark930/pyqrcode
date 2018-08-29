@@ -34,7 +34,7 @@ def search(url):
 
 
 def play(url):
-    proc = Popen(['omxplayer', url])
+    proc = Popen(['omxplayer', '-o', 'hdmi', url])
     pgid = os.getpgid(proc.pid)
 
     return pgid
